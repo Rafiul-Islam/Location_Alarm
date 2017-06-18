@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/map"
+    android:gravity="center"
+    tools:context="com.example.rafiulislamrafi.locationalarm.MainActivity">
+
+    <Button
+        android:id="@+id/addTaskButton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Add task"
+        android:textAllCaps="true"
+        android:background="@color/colorAccent"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/Starttaskbuton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Start task"
+        android:textAllCaps="true"
+        android:background="@android:color/holo_green_dark"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+
+    <Button
+        android:id="@+id/endtaskbutton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="end task"
+        android:textAllCaps="true"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+
+    <Button
+        android:id="@+id/mapViewButton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="map view"
+        android:textAllCaps="true"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>

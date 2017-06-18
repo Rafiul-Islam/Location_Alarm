@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Location Alarm</string>
+    <string name="GOOGLE_PLACE_API">AIzaSyBEMmKrpNFy6P4X3FdeZ4nRfm1d8ARVDRk</string>
+</resources>
