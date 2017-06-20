@@ -28,9 +28,9 @@ public class Add_Task extends Activity {
 
     private int mYear, mMonth, mDay, mHour, mMinute;
 
-    String name, id, task;
+    public static String name, id, task;
 
-    String Date, Time;
+    public static String Date, Time;
 
     EditText get_location, get_task;
     TimePicker get_time;
@@ -160,16 +160,17 @@ public class Add_Task extends Activity {
                 while (data.moveToNext()){
 
                     buffer.append("ID : " + data.getString(0) + " \n ");
-                    buffer.append("LOCATION : " + data.getString(1) + " \n ");
-                    buffer.append("TASK : " + data.getString(2) + " \n ");
-                    buffer.append("TIME : " + data.getString(3) + " \n\n");
-                    buffer.append("DATE : " + data.getString(4) + " \n\n");
+                    buffer.append("\tLOCATION : " + data.getString(1) + " \n ");
+                    buffer.append("\tTASK : " + data.getString(2) + " \n ");
+                    buffer.append("\tTIME : " + data.getString(3) + " \n\n");
+                    buffer.append("\tDATE : " + data.getString(4) + " \n\n");
                 }
 
                 //Show all data
                 showMessage("Data", buffer.toString());
             }
         });
+
     }
 
     public void showMessage(String title, String message){
@@ -179,7 +180,6 @@ public class Add_Task extends Activity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
-
     }
 }
 

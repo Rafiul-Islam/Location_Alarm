@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-    Button add_task_button, start_task_button, end_task_button, map_view_button;
+    Button add_task_button, start_task_button, end_task_button, task_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         add_task_button = (Button) findViewById(R.id.addTaskButton);
         start_task_button = (Button) findViewById(R.id.Starttaskbuton);
         end_task_button = (Button) findViewById(R.id.endtaskbutton);
-        map_view_button = (Button) findViewById(R.id.mapViewButton);
+        task_button = (Button) findViewById(R.id.taskButton);
 
     }
 
@@ -36,6 +36,16 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Add_Task.class);
                 startActivity(intent);
+            }
+        });
+
+        task_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Tasks.class);
+                startActivity(intent);
+
             }
         });
 
