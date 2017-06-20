@@ -48,7 +48,7 @@
         android:id="@+id/mapViewButton"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:text="map view"
+        android:text="tasks"
         android:textAllCaps="true"
         android:background="@android:color/holo_blue_dark"
         android:textColor="#ffffff"

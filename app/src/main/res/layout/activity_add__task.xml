@@ -79,15 +79,34 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"></DatePicker>
 
-        <Button
-            android:id="@+id/submit"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
+            android:orientation="horizontal"
+            >
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="submit"
+            android:padding="10dp"
+            android:layout_weight="1"
             android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/view"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="View"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

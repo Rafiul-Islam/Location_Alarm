@@ -2,7 +2,9 @@ package com.example.rafiulislamrafi.locationalarm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -33,7 +35,7 @@ public class Add_Task extends Activity {
     EditText get_location, get_task;
     TimePicker get_time;
     DatePicker get_date;
-    Button submit_button;
+    Button submit_button, view_button;
 
     ImageView map;
 
@@ -52,6 +54,7 @@ public class Add_Task extends Activity {
         map = (ImageView) findViewById(R.id.mapViewButton);
 
         submit_button = (Button) findViewById(R.id.submit);
+        view_button = (Button) findViewById(R.id.view);
 
         map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,14 +108,14 @@ public class Add_Task extends Activity {
                 mMonth = date.get(Calendar.MONTH);
                 mDay = date.get(Calendar.DAY_OF_MONTH);
 
-                Date = ("Date : "+ mDay + "-" + mMonth + "-" + mYear);
+                Date = (""+ mDay + "-" + (mMonth + 1) + "-" + mYear);
 
                 // Get Time
                 final Calendar time = Calendar.getInstance();
                 mHour = time.get(Calendar.HOUR_OF_DAY);
                 mMinute = time.get(Calendar.MINUTE);
 
-                Time = ("Time - "+ mMinute + ":" + mHour);
+                Time = (""+ mHour + " : " + mMinute);
 
                 boolean isInserted = myDatabase.insertData(User_id.toString(), task.toString(), Time.toString(), Date.toString());
 
@@ -127,6 +130,8 @@ public class Add_Task extends Activity {
                 clearText();
             }
         });
+
+       viewAllData();
     }
 
     public void clearText() {
@@ -134,4 +139,47 @@ public class Add_Task extends Activity {
         get_location.setText("");
         get_task.setText("");
     }
+
+    public void viewAllData(){
+
+        view_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Cursor data = myDatabase.getAllData();
+
+                if (data.getCount() == 0){
+
+                    //Show Message
+                    showMessage("Error", "Nothing Found");
+                    return;
+                }
+
+                StringBuffer buffer = new StringBuffer();
+
+                while (data.moveToNext()){
+
+                    buffer.append("ID : " + data.getString(0) + " \n ");
+                    buffer.append("LOCATION : " + data.getString(1) + " \n ");
+                    buffer.append("TASK : " + data.getString(2) + " \n ");
+                    buffer.append("TIME : " + data.getString(3) + " \n\n");
+                    buffer.append("DATE : " + data.getString(4) + " \n\n");
+                }
+
+                //Show all data
+                showMessage("Data", buffer.toString());
+            }
+        });
+    }
+
+    public void showMessage(String title, String message){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+
+    }
 }
+
