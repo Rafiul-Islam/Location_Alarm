@@ -16,6 +16,5 @@ public class Tasks extends Activity {
         tasks = (TextView) findViewById(R.id.tasks);
 
         Add_Task add_task = new Add_Task();
-
     }
 }
