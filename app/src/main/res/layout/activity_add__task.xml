@@ -26,6 +26,7 @@
                 android:id="@+id/getLocation"
                 android:layout_width="265dp"
                 android:layout_height="wrap_content"
+                android:text=""
                 android:hint="Click on the location image" />
 
             <ImageView
@@ -47,7 +48,10 @@
         <EditText
             android:id="@+id/getTask"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:hint="Type Your Task"
+            />
 
         <TextView
             android:layout_width="wrap_content"

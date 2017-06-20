@@ -71,8 +71,6 @@ public class Add_Task extends Activity {
                 }
             }
         });
-
-        submitData();
     }
 
     protected void onActivityResult(int request_code, int result_code, Intent data) {
@@ -89,9 +87,11 @@ public class Add_Task extends Activity {
                 get_location.setText(""+name);
             }
         }
+
+        SubmitData(id);
     }
 
-   public void submitData(){
+   public void SubmitData(final String User_id){
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,14 +114,14 @@ public class Add_Task extends Activity {
 
                 Time = ("Time - "+ mMinute + ":" + mHour);
 
-                boolean isInserted = myDatabase.insertData(id.toString(), task.toString(), Time.toString(), Date.toString());
+                boolean isInserted = myDatabase.insertData(User_id.toString(), task.toString(), Time.toString(), Date.toString());
 
                 if (isInserted == true) {
 
-                    Toast.makeText(Add_Task.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Add_Task.this, "Data Inserted", Toast.LENGTH_LONG).show();
                 } else {
 
-                    Toast.makeText(Add_Task.this, "Data Not Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Add_Task.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
                 }
 
                 clearText();
