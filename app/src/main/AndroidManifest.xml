@@ -23,7 +23,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/GOOGLE_PLACE_API"></meta-data>
+            android:value="@string/GOOGLE_PLACE_API"/>
 
         <activity android:name=".Tasks"></activity>
     </application>
