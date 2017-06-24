@@ -6,16 +6,22 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Tasks extends Activity {
 
-    Button showdata, deleteDat;
+    Button showdata;
     DataBase_Helper myDatabase;
+    TextView all_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
+
+        myDatabase = new DataBase_Helper(this);
+
+        all_data = (TextView) findViewById(R.id.text);
 
         showdata = (Button) findViewById(R.id.viewData);
 
@@ -33,7 +39,8 @@ public class Tasks extends Activity {
                 if (data.getCount() == 0) {
 
                     //Show Message
-                    showMessage("Error", "Nothing Found");
+                    //showMessage("Error", "Nothing Found");
+                    showMessage("Nothing Found");
                     return;
                 }
 
@@ -44,23 +51,32 @@ public class Tasks extends Activity {
                     buffer.append("ID : " + data.getString(0) + " \n ");
                     buffer.append("\tLOCATION : " + data.getString(1) + " \n ");
                     buffer.append("\tTASK : " + data.getString(2) + " \n ");
-                    buffer.append("\tTIME : " + data.getString(3) + " \n\n");
+                    buffer.append("\tTIME : " + data.getString(3) + " \n");
                     buffer.append("\tDATE : " + data.getString(4) + " \n\n");
                 }
 
                 //Show all data
-                showMessage("Data", buffer.toString());
+                //showMessage("Data", buffer.toString());
+
+                showMessage(buffer.toString());
             }
         });
 
     }
 
-    public void showMessage(String title, String message) {
+    /*public void showMessage(String title, String message) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }*/
+
+    public void showMessage(String allData){
+
+        all_data.setText(""+allData);
+
     }
+
 }

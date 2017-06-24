@@ -125,9 +125,9 @@ public class Add_Task extends Activity implements View.OnClickListener {
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
 
-                            get_date.setText("" + mDay + "-" + (mMonth + 1) + "-" + mYear);
+                            get_date.setText("" + dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
-                            Toast.makeText(getApplicationContext(), "DATE : " + mDay + "-" + (mMonth + 1) + "-" + mYear, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "DATE : " + dayOfMonth + "-" + (monthOfYear + 1) + "-" + year, Toast.LENGTH_SHORT).show();
 
                         }
                     }, mYear, mMonth, mDay);
@@ -149,9 +149,9 @@ public class Add_Task extends Activity implements View.OnClickListener {
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
 
-                            get_time.setText("" + mHour + " : " + mMinute);
+                            get_time.setText("" + hourOfDay + " : " + minute);
 
-                            Toast.makeText(getApplicationContext(), "TIME - " + mHour + " : " + mMinute, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "TIME - " + hourOfDay + " : " + minute, Toast.LENGTH_SHORT).show();
 
                         }
                     }, mHour, mMinute, false);
@@ -238,7 +238,6 @@ public class Add_Task extends Activity implements View.OnClickListener {
 
     }
 
-
     public void clearText() {
 
         get_location.setText("");
@@ -289,11 +288,6 @@ public class Add_Task extends Activity implements View.OnClickListener {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
     }
 }
 
