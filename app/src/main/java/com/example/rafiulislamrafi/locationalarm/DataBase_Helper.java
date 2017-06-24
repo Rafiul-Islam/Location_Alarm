@@ -11,7 +11,7 @@ public class DataBase_Helper extends SQLiteOpenHelper{
 
     public static final String DATABASE_NAME = "UserData.db";
     public static final String TABLE_NAME = "USER_INPUT";
-    public static final String COL_1 = "_id";
+    public static final String COL_1 = "ID";
     public static final String COL_2 = "PLACE";
     public static final String COL_3 = "TASK";
     public static final String COL_4 = "TIME";
@@ -24,7 +24,7 @@ public class DataBase_Helper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, PLACE TEXT, TASK TEXT, TIME TEXT, DATE TEXT) " );
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID TEXT PRIMARY KEY, PLACE TEXT, TASK TEXT, TIME TEXT, DATE TEXT) " );
 
     }
 
@@ -35,10 +35,12 @@ public class DataBase_Helper extends SQLiteOpenHelper{
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertData(String place, String task, String time, String date){
+    public boolean insertData(String id, String place, String task, String time, String date){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1, id);
         contentValues.put(COL_2, place);
         contentValues.put(COL_3, task);
         contentValues.put(COL_4, time);
@@ -61,5 +63,32 @@ public class DataBase_Helper extends SQLiteOpenHelper{
         Cursor data = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME, null);
         return data;
     }
+
+    public boolean updateData(String id, String place, String task, String time, String date) {
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1, id);
+        contentValues.put(COL_2, place);
+        contentValues.put(COL_3, task);
+        contentValues.put(COL_4, time);
+        contentValues.put(COL_5, date);
+
+        sqLiteDatabase.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+
+        return true;
+
+    }
+
+    public Integer deleteData(String id) {
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        return sqLiteDatabase.delete(TABLE_NAME, "ID = ?", new String[]{id});
+
+    }
+
 }
 

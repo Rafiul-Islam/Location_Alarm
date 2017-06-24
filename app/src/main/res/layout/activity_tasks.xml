@@ -4,14 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.example.rafiulislamrafi.locationalarm.Tasks">
 
-    <TextView
-        android:id="@+id/tasks"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:padding="10dp"
-        />
+        <Button
+            android:id="@+id/viewData"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:text="View Data"
+            />
+
+        <Button
+            android:id="@+id/Update"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:text="Delete"
+            android:layout_marginTop="10dp"
+            />
+
 
 </LinearLayout>
