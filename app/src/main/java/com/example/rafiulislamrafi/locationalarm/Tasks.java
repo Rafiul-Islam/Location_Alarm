@@ -75,8 +75,7 @@ public class Tasks extends Activity {
 
     public void showMessage(String allData){
 
-        all_data.setText(""+allData);
+        all_data.setText(""+allData+"\n\n");
 
     }
-
 }
