@@ -1,4 +1,4 @@
-package com.example.rafiulislamrafi.locationalarm;
+package com.aktar.sakifa.locationalarm;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,20 +16,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         objCasting();
-        onbuttonClick();
+        onButtonClick();
 
     }
 
     public void objCasting(){
 
         add_task_button = (Button) findViewById(R.id.addTaskButton);
-        start_task_button = (Button) findViewById(R.id.Starttaskbuton);
-        end_task_button = (Button) findViewById(R.id.endtaskbutton);
+        start_task_button = (Button) findViewById(R.id.StartTaskButton);
+        end_task_button = (Button) findViewById(R.id.EndTaskButton);
         task_button = (Button) findViewById(R.id.taskButton);
 
     }
 
-    public void onbuttonClick(){
+    public void onButtonClick(){
 
         add_task_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +44,26 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, Tasks.class);
+                startActivity(intent);
+
+            }
+        });
+
+        start_task_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, StartTask.class);
+                startActivity(intent);
+
+            }
+        });
+
+        end_task_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, EndTask.class);
                 startActivity(intent);
 
             }

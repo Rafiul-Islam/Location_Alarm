@@ -1,9 +1,8 @@
-package com.example.rafiulislamrafi.locationalarm;
+package com.aktar.sakifa.locationalarm;
 
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;

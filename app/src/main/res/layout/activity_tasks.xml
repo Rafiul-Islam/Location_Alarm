@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.rafiulislamrafi.locationalarm.Tasks">
+    tools:context="com.aktar.sakifa.locationalarm.Tasks">
 
         <Button
             android:id="@+id/viewData"

@@ -1,4 +1,4 @@
-package com.example.rafiulislamrafi.locationalarm;
+package com.aktar.sakifa.locationalarm;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
